@@ -11,8 +11,11 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
     if (!title) {
       throw new Error("Title is required");
     }
-
-    const html = getThumbnailTemplate(title);
+    const thumbnail_logo = [
+      "https://cdn.worldvectorlogo.com/logos/terminal-1.svg",
+      "https://cdn.worldvectorlogo.com/logos/typescript.svg",
+    ];
+    const html = getThumbnailTemplate(title, thumbnail_logo);
 
     const file = await getScreenshot(html, isDev);
 
